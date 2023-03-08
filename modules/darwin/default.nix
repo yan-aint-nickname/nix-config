@@ -26,4 +26,10 @@
   };
   # backwards compat; don't change
   system.stateVersion = 4;
+  homebrew = {
+    enable = true;
+    caskArgs.no_quarantine = true;
+    global.brewfile = true;
+    casks = [ "raycast" ];
+  };
 }

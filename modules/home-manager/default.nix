@@ -7,6 +7,7 @@
     curl
     less
     neovim
+    iterm2
   ];
   home.sessionVariables = {
     PAGER = "less";
