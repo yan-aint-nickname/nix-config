@@ -8,10 +8,11 @@
     less
     neovim
     iterm2
-    vscode
     gitui
     poetry
     teleport
+    k9s
+    vscodium
   ];
   home.sessionVariables = {
     PAGER = "less";
@@ -32,23 +33,37 @@
   };
   programs.starship.enable = true;
   programs.starship.enableZshIntegration = true;
-  programs.vscode = { 
+  programs.vscode = {
     enable = true;
+    package = pkgs.vscodium;
     extensions = with pkgs.vscode-extensions; [
       vscodevim.vim 
       ms-azuretools.vscode-docker
       alefragnani.bookmarks
       editorconfig.editorconfig
       golang.go
+      rust-lang.rust-analyzer
       ms-python.python
       mvllow.rose-pine
+    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      {
+        name = "plantuml";
+	publisher = "jebbs";
+	version = "2.17.5";
+	sha256 = "C/kf+rYGTIdExxivNKHWeOzNsPAOWz2jn4sc52+sClA=";
+      }
+      {
+        name = "cpptools";
+	publisher = "ms-vscode";
+	version = "1.14.4";
+	sha256 = "3gWMrsVr5XjsuXL3DJ+KkVVD2RWtN6Uqdp3e7u9OwnM=";
+      }
     ];
     userSettings = {
       "editor.fontSize" = 14;
       "editor.fontFamily" = "Meslo";
       "editor.fontLigatures" = true;
       "editor.formatOnSave" = true;
-      "telemetry.enableTelemetry" = false;
       "files.autoSave" = "afterDelay";
       "files.autoSaveDelay" = 1000;
       "workbench.colorTheme" = "Rosé Pine";

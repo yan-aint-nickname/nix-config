@@ -30,7 +30,7 @@
     enable = true;
     caskArgs.no_quarantine = true;
     global.brewfile = true;
-    casks = [ "raycast" ];
-    brews = [ "pyenv" ];
+    casks = [ "raycast" "temurin" ];
+    brews = [ "pyenv" "graphviz" ];
   };
 }
