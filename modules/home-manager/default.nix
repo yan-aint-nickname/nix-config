@@ -8,6 +8,10 @@
     less
     neovim
     iterm2
+    vscode
+    gitui
+    poetry
+    teleport
   ];
   home.sessionVariables = {
     PAGER = "less";
@@ -28,4 +32,26 @@
   };
   programs.starship.enable = true;
   programs.starship.enableZshIntegration = true;
+  programs.vscode = { 
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      vscodevim.vim 
+      ms-azuretools.vscode-docker
+      alefragnani.bookmarks
+      editorconfig.editorconfig
+      golang.go
+      ms-python.python
+      mvllow.rose-pine
+    ];
+    userSettings = {
+      "editor.fontSize" = 14;
+      "editor.fontFamily" = "Meslo";
+      "editor.fontLigatures" = true;
+      "editor.formatOnSave" = true;
+      "telemetry.enableTelemetry" = false;
+      "files.autoSave" = "afterDelay";
+      "files.autoSaveDelay" = 1000;
+      "workbench.colorTheme" = "Rosé Pine";
+    };
+  };
 }
