@@ -77,9 +77,12 @@
       "editor.fontFamily" = "Meslo";
       "editor.fontLigatures" = true;
       "editor.formatOnSave" = true;
+      "editor.tabCompletion" = "on";
       "files.autoSave" = "afterDelay";
       "files.autoSaveDelay" = 1000;
       "workbench.colorTheme" = "Rosé Pine";
+      "terminal.integrated.fontFamily" = "MesloLGL Nerd Font Mono";
+      "terminal.integrated.fontSize" = 13;
     };
   };
 }
