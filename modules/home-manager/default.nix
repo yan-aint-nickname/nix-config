@@ -13,6 +13,8 @@
     teleport
     k9s
     vscodium
+    jql
+    rustup
   ];
   home.sessionVariables = {
     PAGER = "less";
@@ -31,8 +33,13 @@
     nixswitch = "darwin-rebuild switch --flake ~/.nix-config/.#";
     nixup = "pushd ~/.nix-config; nix flake update; nixswitch; popd";
   };
-  programs.starship.enable = true;
-  programs.starship.enableZshIntegration = true;
+  programs.zsh = {
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" "kubectl"];
+      theme = "robbyrussell";
+    };
+  };
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
@@ -57,6 +64,12 @@
 	publisher = "ms-vscode";
 	version = "1.14.4";
 	sha256 = "3gWMrsVr5XjsuXL3DJ+KkVVD2RWtN6Uqdp3e7u9OwnM=";
+      }
+      {
+        name = "vscodeintellicode";
+	publisher = "VisualStudioExptTeam";
+	version = "1.2.30";
+	sha256 = "f2Gn+W0QHN8jD5aCG+P93Y+JDr/vs2ldGL7uQwBK4lE=";
       }
     ];
     userSettings = {
