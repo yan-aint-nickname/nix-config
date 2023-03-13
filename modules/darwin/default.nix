@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   # here go the darwin preferences and config items
+  programs.zsh.enable = true;
   environment = {
     shells = with pkgs; [ bash zsh ];
     loginShell = pkgs.zsh;
@@ -30,6 +31,6 @@
     caskArgs.no_quarantine = true;
     global.brewfile = true;
     casks = [ "raycast" "temurin" "insomnia" ];
-    brews = [ "pyenv" "graphviz" ];
+    brews = [ "pyenv" "goenv" "graphviz" ];
   };
 }

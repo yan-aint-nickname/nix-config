@@ -33,6 +33,10 @@
     nixswitch = "darwin-rebuild switch --flake ~/.nix-config/.#";
     nixup = "pushd ~/.nix-config; nix flake update; nixswitch; popd";
   };
+  programs.zsh.initExtra = ''
+    eval "$(pyenv init -)"
+    eval "$(goenv init -)"
+  '';
   programs.zsh = {
     oh-my-zsh = {
       enable = true;
@@ -43,6 +47,7 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
+    enableUpdateCheck = false;
     extensions = with pkgs.vscode-extensions; [
       vscodevim.vim 
       ms-azuretools.vscode-docker
@@ -83,6 +88,7 @@
       "workbench.colorTheme" = "Rosé Pine";
       "terminal.integrated.fontFamily" = "MesloLGL Nerd Font Mono";
       "terminal.integrated.fontSize" = 13;
+      "terminal.external.osxExec" = "iTerm2";
     };
   };
 }
